@@ -9,6 +9,7 @@ axios.defaults.withCredentials = true; // Ensure credentials (cookies) are inclu
 
 const AuthProvider = ({ children }) => {
     const [auth, setAuth] = useState(null);
+    const [isCheckingAuth, setIsCheckingAuth] = useState(true);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -17,7 +18,9 @@ const AuthProvider = ({ children }) => {
                 const response = await axios.get('/api/auth/verify/');
                 setAuth({ status: 'authenticated' });
             } catch (error) {
-                setAuth(null);
+                setAuth(false); // Explicitly set to false if authentication fails
+            } finally {
+                setIsCheckingAuth(false); // Set isCheckingAuth to false after check
             }
         };
 
@@ -55,7 +58,7 @@ const AuthProvider = ({ children }) => {
     };
 
     return (
-        <AuthContext.Provider value={{ auth, login, register, logout }}>
+        <AuthContext.Provider value={{ auth, isCheckingAuth,login, register, logout }}>
             {children}
         </AuthContext.Provider>
     );

@@ -3,18 +3,11 @@ import { AuthContext } from './AuthContext';
 import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
-    const { auth, logout } = useContext(AuthContext);
+    const { auth, isCheckingAuth,logout } = useContext(AuthContext);
     const navigate = useNavigate();
-    const [isCheckingAuth, setIsCheckingAuth] = useState(true);
 
     useEffect(() => {
-        if (auth !== null) {
-            setIsCheckingAuth(false);
-        }
-    }, [auth]);
-
-    useEffect(() => {
-        if (!isCheckingAuth && !auth) {
+        if (!isCheckingAuth && auth === false) {
             navigate('/login');
         }
     }, [isCheckingAuth, auth, navigate]);
@@ -23,7 +16,7 @@ const Home = () => {
         return <div>Loading...</div>; // Or a loading spinner
     }
 
-    if (!auth) {
+    if (auth === false) {
         return null; // Or a fallback UI
     }
 
