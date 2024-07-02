@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="85b5467f-f6d7-4d93-999f-5ac3d4b8fed8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back_end/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/back_end/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back_end/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/back_end/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/.idea/front_end.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/public/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/reportWebVitals.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/setupTests.js" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 2
+}]]></component>
+  <component name="ProjectId" id="2ihYhXg6Apwd3ynNA00vUoJl6I8" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Django Server.back_end.executor": "Run",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="back_end" type="Python.DjangoServer" factoryName="Django server">
+      <module name="back_end" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="back_end.settings" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="localhost" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-50da183f06c8-2887949eec09-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.13135.95" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="85b5467f-f6d7-4d93-999f-5ac3d4b8fed8" name="Changes" comment="" />
+      <created>1719944395393</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1719944395393</updated>
+      <workItem from="1719944400801" duration="3333000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
