@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
+from .models import Expense
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -10,3 +11,11 @@ class UserSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         user = User.objects.create_user(**validated_data)
         return user
+
+
+
+class ExpenseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Expense
+        fields = ['id', 'creator', 'amount', 'description', 'date']
+        read_only_fields = ['id', 'creator']
