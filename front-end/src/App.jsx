@@ -3,11 +3,14 @@ import { AuthProvider } from './components/AuthContext.jsx';
 import Login from './components/Login.jsx';
 import Register from './components/Register.jsx';
 import Home from './components/Home.jsx';
+import Navigation from "./components/Navigation.jsx";
 
 const App = () => {
     return (
         <Router>
             <AuthProvider>
+                <Navigation/>
+
                 <Routes>
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />

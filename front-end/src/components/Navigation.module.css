@@ -1,0 +1,13 @@
+.navBar{
+    background-color: dimgray;
+    margin: 0;
+    display: flex;
+    list-style: none;
+    justify-content: center;
+}
+.navItem{
+    cursor: pointer;
+    padding: 6px;
+    font-size: 18px;
+    color: white;
+}

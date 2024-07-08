@@ -4,28 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85b5467f-f6d7-4d93-999f-5ac3d4b8fed8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f220c575-43da-49bf-aac6-51d5abff7fc8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f220c575-43da-49bf-aac6-51d5abff7fc8.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/expenses/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/expenses/admin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/expenses/apps.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/expenses/authentication.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/expenses/middleware.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/expenses/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/expenses/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/expenses/serializers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/expenses/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/expenses/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/expenses/views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/src/components/AuthContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/components/AuthContext.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/src/components/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/components/Home.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/src/components/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/components/Register.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../pythonProject/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../pythonProject/.idea/workspace.xml" beforeDir="false" />
-    </list>
+    <list default="true" id="85b5467f-f6d7-4d93-999f-5ac3d4b8fed8" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -117,6 +96,7 @@
       <workItem from="1719944400801" duration="3333000" />
       <workItem from="1720037742390" duration="170000" />
       <workItem from="1720037913651" duration="898000" />
+      <workItem from="1720469051728" duration="453000" />
     </task>
     <servers />
   </component>
