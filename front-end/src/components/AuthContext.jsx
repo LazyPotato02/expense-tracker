@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 const AuthContext = createContext();
 
 axios.defaults.baseURL = 'http://localhost:8000';
-axios.defaults.withCredentials = true; // Ensure credentials (cookies) are included in requests
+axios.defaults.withCredentials = true;
 
 const AuthProvider = ({ children }) => {
     const [auth, setAuth] = useState(null);
@@ -18,9 +18,9 @@ const AuthProvider = ({ children }) => {
                 const response = await axios.get('/api/auth/verify/');
                 setAuth({ status: 'authenticated' });
             } catch (error) {
-                setAuth(false); // Explicitly set to false if authentication fails
+                setAuth(false);
             } finally {
-                setIsCheckingAuth(false); // Set isCheckingAuth to false after check
+                setIsCheckingAuth(false);
             }
         };
 
@@ -31,7 +31,7 @@ const AuthProvider = ({ children }) => {
         try {
             const response = await axios.post('/api/auth/login/', { username, password });
             setAuth({ status: 'authenticated' });
-            navigate('/');  // Redirect to home page after login
+            navigate('/');
         } catch (error) {
             console.error('Login failed:', error);
         }
@@ -41,7 +41,7 @@ const AuthProvider = ({ children }) => {
         try {
             const response = await axios.post('/api/auth/register/', { username, password });
             setAuth({ status: 'authenticated' });
-            navigate('/');  // Redirect to home page after registration
+            navigate('/');
         } catch (error) {
             console.error('Registration failed:', error);
         }
@@ -51,7 +51,7 @@ const AuthProvider = ({ children }) => {
         try {
             await axios.post('/api/auth/logout/');
             setAuth(null);
-            navigate('/login');  // Redirect to login page after logout
+            navigate('/login');
         } catch (error) {
             console.error('Logout failed:', error);
         }
