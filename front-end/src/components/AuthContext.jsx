@@ -11,12 +11,15 @@ const AuthProvider = ({ children }) => {
     const [auth, setAuth] = useState(null);
     const [isCheckingAuth, setIsCheckingAuth] = useState(true);
     const navigate = useNavigate();
-
+    const EXCEPT_PATHS = ['/','/about','/login','/register']
     useEffect(() => {
         const verifyAuth = async () => {
             try {
-                const response = await axios.get('/api/auth/verify/');
-                setAuth({ status: 'authenticated' });
+                if (!EXCEPT_PATHS.includes(window.location.pathname)){
+                    const response = await axios.get('/api/auth/verify/');
+                    setAuth({ status: 'authenticated' });
+                }
+
             } catch (error) {
                 setAuth(false);
             } finally {

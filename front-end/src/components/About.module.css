@@ -1,0 +1,22 @@
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    /*background-color: #fff;*/
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    line-height: 1.6,;
+    /*backgroundColor: '#f4f4f4';*/
+    text-align: center;
+}
+.container li{
+    list-style: none;
+}
+
+.heading {
+    color: #333;
+}
+
+.subheading {
+    margin-bottom: 16px;
+}

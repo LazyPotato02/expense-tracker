@@ -1,5 +1,6 @@
 .navBar{
-    background-color: dimgray;
+    /*background-color: #fb9413;*/
+    background: rgba(0, 0, 0, 0.5);
     margin: 0;
     display: flex;
     list-style: none;

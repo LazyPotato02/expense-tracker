@@ -20,10 +20,14 @@ class RegisterView(APIView):
             response = Response({'token': token.key}, status=status.HTTP_201_CREATED)
             response.set_cookie('auth_token', token.key, httponly=True, samesite='Strict')
             return response
+
+        # TODO Get data check the data and return the propper error
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class CustomAuthToken(ObtainAuthToken):
     permission_classes = [AllowAny]
+
+    # TODO Get data check the data and return the propper error
 
     def post(self, request, *args, **kwargs):
         serializer = self.serializer_class(data=request.data, context={'request': request})
