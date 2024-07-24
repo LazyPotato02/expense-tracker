@@ -17,5 +17,9 @@ class UserSerializer(serializers.ModelSerializer):
 class ExpenseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Expense
-        fields = ['id', 'creator', 'amount', 'description', 'date']
-        read_only_fields = ['id', 'creator']
+        fields = ['id', 'creator', 'amount', 'description', 'month', 'year']
+
+    def validate_month(self, value):
+        if value not in ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']:
+            raise serializers.ValidationError("Invalid month value.")
+        return value

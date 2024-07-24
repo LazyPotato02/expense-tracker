@@ -11,7 +11,6 @@ const AuthProvider = ({ children }) => {
     const [auth, setAuth] = useState(null);
     const [isCheckingAuth, setIsCheckingAuth] = useState(true);
     const navigate = useNavigate();
-    const EXCEPT_PATHS = ['/','/about','/login','/register']
     useEffect(() => {
         const verifyAuth = async () => {
             try {
