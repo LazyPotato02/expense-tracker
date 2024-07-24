@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import { AuthContext } from "./AuthContext.jsx";
+import { AuthContext } from "./user-management/AuthContext.jsx";
 import { useNavigate, useLocation } from "react-router-dom";
 import styles from './Navigation.module.css';
 
@@ -28,8 +28,8 @@ export default function Navigation() {
 
                 {!auth ? (
                     <>
-                        <li><a href="/login" className={styles.navItem}>Login</a></li>
-                        <li><a href="/register" className={styles.navItem}>Register</a></li>
+                        <li><a href="/user-management/Login" className={styles.navItem}>Login</a></li>
+                        <li><a href="/user-management/Register" className={styles.navItem}>Register</a></li>
                     </>
                 ) : (
                     <>
