@@ -1,13 +1,14 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { AuthProvider } from './components/AuthContext.jsx';
-import Login from './components/Login.jsx';
-import Register from './components/Register.jsx';
-import Home from './components/Home.jsx';
-import Navigation from "./components/Navigation.jsx";
-import ProtectedRoute from './components/routeGuard.jsx';
-import Dashboard from "./components/Dashboard.jsx";
-import About from "./components/About.jsx";
-import NotFound from "./components/NotFound.jsx";
+import { AuthProvider } from './components/user-management/AuthContext.jsx';
+import Login from './components/user-management/Login.jsx';
+import Register from './components/user-management/Register.jsx';
+import Home from './components/public-components/Home.jsx';
+import Navigation from "./components/public-components/Navigation.jsx";
+import ProtectedRoute from './components/user-management/routeGuard.jsx';
+import Dashboard from "./components/private-components/Dashboard.jsx";
+import About from "./components/public-components/About.jsx";
+import NotFound from "./components/public-components/NotFound.jsx";
+import {CreateExpenses} from "./components/private-components/CreateExpenses.jsx";
 
 const App = () => {
     return (
@@ -23,6 +24,7 @@ const App = () => {
 
                     {/* Protected Routes */}
                     <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+                    <Route path="/create" element={<ProtectedRoute><CreateExpenses /></ProtectedRoute>} />
 
                     {/* Catch-all route for 404 Not Found */}
                     <Route path="*" element={<NotFound />} />

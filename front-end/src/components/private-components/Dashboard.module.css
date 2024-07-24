@@ -1,0 +1,39 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    /*height: 100vh;*/
+    box-sizing: border-box;
+    position: relative;
+}
+
+.createButton {
+    padding: 10px 20px;
+    background-color: #8bc34a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    margin-left: 20px;
+}
+
+.createButton:hover {
+    background-color: #6fa32c;
+    color: white;
+}
+
+.heading {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    color: #000;
+    margin: 0;
+}
+
+.expenses{
+
+}

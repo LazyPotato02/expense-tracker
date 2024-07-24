@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import { AuthContext } from './AuthContext';
+import { AuthContext } from './AuthContext.jsx';
 import styles from './Login.module.css'
 const Login = () => {
     const [username, setUsername] = useState('');

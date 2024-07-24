@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
-import { AuthContext } from "./user-management/AuthContext.jsx";
-import { useNavigate, useLocation } from "react-router-dom";
+import { AuthContext } from "../user-management/AuthContext.jsx";
+import {useNavigate, useLocation, Link} from "react-router-dom";
 import styles from './Navigation.module.css';
 
 export default function Navigation() {
@@ -23,18 +23,17 @@ export default function Navigation() {
     return (
         <>
             <ul className={styles.navBar}>
-                <li><a href="/" className={styles.navItem}>Home</a></li>
-                <li><a href="/about" className={styles.navItem}>About</a></li>
+                <Link className={styles.navItem} to={'/'}>Home</Link>
+                <Link className={styles.navItem} to={'/about'}>About</Link>
 
                 {!auth ? (
                     <>
-                        <li><a href="/user-management/Login" className={styles.navItem}>Login</a></li>
-                        <li><a href="/user-management/Register" className={styles.navItem}>Register</a></li>
+                        <Link className={styles.navItem} to={'/login'}>Login</Link>
+                        <Link className={styles.navItem} to={'/register'}>Register</Link>
                     </>
                 ) : (
                     <>
-                        <li><a href="/dashboard" className={styles.navItem}>Dashboard</a></li>
-
+                        <Link className={styles.navItem} to={'/dashboard'}>Dashboard</Link>
                         <li>
                             <a onClick={logout} className={styles.navItem}>Logout</a>
                         </li>
