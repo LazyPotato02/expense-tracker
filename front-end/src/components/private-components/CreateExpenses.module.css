@@ -1,0 +1,54 @@
+.formWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.form div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+
+
+.form input{
+    width: 70px;
+    border: none;
+    border-radius: 8px;
+    padding: 6px;
+}
+
+
+
+.form textarea{
+    width: 300px;
+    height: 80px;
+    border: none;
+    border-radius: 8px;
+    padding: 6px;
+}
+
+.form select{
+    border: none;
+    border-radius: 8px;
+    padding: 6px;
+}
+
+.submitBtn{
+    background-color: #8bc34a;
+    color: white;
+    cursor: pointer;
+}
+
+.submitBtn:hover {
+    background-color: #6fa32c;
+    color: white;
+}
