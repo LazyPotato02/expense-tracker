@@ -23,3 +23,8 @@ class ExpenseSerializer(serializers.ModelSerializer):
         if value not in ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']:
             raise serializers.ValidationError("Invalid month value.")
         return value
+
+class UserIdSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id']

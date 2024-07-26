@@ -5,7 +5,7 @@ from rest_framework.authtoken.models import Token
 from django.contrib.auth.models import User
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework import status
-from .serializers import UserSerializer
+from .serializers import UserSerializer, UserIdSerializer
 from rest_framework import generics
 from .models import Expense
 from .serializers import ExpenseSerializer
@@ -53,7 +53,13 @@ class VerifyAuthView(APIView):
     def get(self, request):
         return Response({'status': 'authenticated'}, status=200)
 
+class UserIdView(APIView):
+    permission_classes = [IsAuthenticated]
 
+    def get(self, request):
+        user = request.user
+        serializer = UserIdSerializer(user)
+        return Response(serializer.data)
 
 class ExpenseListCreateView(generics.ListCreateAPIView):
     serializer_class = ExpenseSerializer

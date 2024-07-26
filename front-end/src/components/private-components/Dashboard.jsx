@@ -11,7 +11,7 @@ export default function Dashboard() {
                 <h1 className={styles.heading}>Dashboard</h1>
             </div>
             <div className={styles.expenses}>
-                
+
             </div>
         </>
     )

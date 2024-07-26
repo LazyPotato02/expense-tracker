@@ -9,13 +9,17 @@ axios.defaults.withCredentials = true;
 
 const AuthProvider = ({ children }) => {
     const [auth, setAuth] = useState(null);
+    const [userId , setUserId] = useState(null);
     const [isCheckingAuth, setIsCheckingAuth] = useState(true);
     const navigate = useNavigate();
     useEffect(() => {
+
         const verifyAuth = async () => {
             try {
                 const response = await axios.get('/api/auth/verify/');
                 setAuth({ status: 'authenticated' });
+                const id = await axios.get('/api/auth/user-id/');
+                setUserId(id)
             } catch (error) {
                 setAuth(false);
             } finally {
@@ -57,7 +61,7 @@ const AuthProvider = ({ children }) => {
     };
 
     return (
-        <AuthContext.Provider value={{ auth, isCheckingAuth,login, register, logout }}>
+        <AuthContext.Provider value={{ auth, isCheckingAuth,login, register, logout,userId }}>
             {children}
         </AuthContext.Provider>
     );
