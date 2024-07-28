@@ -1,12 +1,14 @@
 .homeTitle{
     margin: 50px auto;
     width: 900px;
+
 }
 .homeTitle p{
     padding-top: 20px;
     font-weight: bold;
     text-align: center;
     border-top: 1px solid black;
+
 }
 
 .homeHero{

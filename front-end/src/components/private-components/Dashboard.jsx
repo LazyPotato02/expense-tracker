@@ -4,7 +4,6 @@ import {useContext, useEffect, useState} from "react";
 import getAllExpensesForUser from "./expenseApi.js";
 import {} from "./CreateExpenses.jsx";
 import ExpenseComponent from "./ExpenseComponent.jsx";
-import {AuthContext} from "../user-management/AuthContext.jsx";
 
 export default function Dashboard() {
     // fetch all expenses based on  selected month and year need both to be true while searching for them

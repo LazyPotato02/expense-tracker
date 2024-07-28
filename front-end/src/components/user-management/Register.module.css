@@ -1,19 +1,35 @@
-.RegisterForm{
+
+.registerWrapper {
     display: flex;
-    justify-content: center;
-    margin-top: 40vh;
     flex-direction: column;
     align-items: center;
+
+}
+.registerTitle{
+    text-align: center;
+    margin-top: 20vh;
+}
+.RegisterForm {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: #dcdcdc;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    margin-bottom: 20px;
 }
 
-.RegisterForm input{
+.RegisterForm input {
     margin: 8px;
     padding: 6px;
     border-radius: 6px;
     border: 1px solid black;
 }
 
-.RegisterForm button{
+.RegisterForm button {
     border: 0;
     background-color: #8ed818;
     padding: 6px 20px;
@@ -21,6 +37,11 @@
     cursor: pointer;
 }
 
-.RegisterForm button:hover{
+.RegisterForm button:hover {
     background-color: #a2ea2f;
+}
+.loginPrompt{
+    text-align: center;
+    width: 500px;
+    font-weight: bold;
 }
