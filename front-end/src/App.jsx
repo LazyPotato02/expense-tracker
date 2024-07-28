@@ -8,7 +8,8 @@ import ProtectedRoute from './components/user-management/routeGuard.jsx';
 import Dashboard from "./components/private-components/Dashboard.jsx";
 import About from "./components/public-components/About.jsx";
 import NotFound from "./components/public-components/NotFound.jsx";
-import {CreateExpenses} from "./components/private-components/CreateExpenses.jsx";
+import {ExpenseCreate} from "./components/private-components/ExpenseCreate.jsx";
+import ExpensesDetails from "./components/private-components/ExpensesDetails.jsx";
 
 const App = () => {
     return (
@@ -24,7 +25,8 @@ const App = () => {
 
                     {/* Protected Routes */}
                     <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-                    <Route path="/create" element={<ProtectedRoute><CreateExpenses /></ProtectedRoute>} />
+                    <Route path="/expenses/create" element={<ProtectedRoute><ExpenseCreate /></ProtectedRoute>} />
+                    <Route path="/expenses/details/:expenseId" element={<ProtectedRoute><ExpensesDetails /></ProtectedRoute>} />
 
                     {/* Catch-all route for 404 Not Found */}
                     <Route path="*" element={<NotFound />} />

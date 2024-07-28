@@ -3,12 +3,13 @@ import {AuthContext} from "../user-management/AuthContext.jsx";
 import axios from "axios";
 import styles from "./CreateExpenses.module.css";
 import {useNavigate} from "react-router-dom";
-export function CreateExpenses() {
-    const {userId}= useContext(AuthContext);
+
+export function ExpenseCreate() {
+    const {userId} = useContext(AuthContext);
     const navigate = useNavigate();
     const [formValues, setFormValues] = useState({
-        creator:userId,
-        title:'',
+        creator: userId,
+        title: '',
         amount: '',
         description: '',
         year: '',
@@ -30,7 +31,7 @@ export function CreateExpenses() {
     };
 
     const changeHandler = (e) => {
-        const { name, value } = e.target;
+        const {name, value} = e.target;
 
         // Additional validation for year
         if (name === 'year') {
@@ -48,7 +49,7 @@ export function CreateExpenses() {
             <div className={styles.formWrapper}>
                 <h1>Create Expense</h1>
                 <form className={styles.form} onSubmit={formSubmitHandler}>
-                    <div >
+                    <div>
                         <label htmlFor="title">Title</label>
                         <input
                             style={{'width': '120px'}}
@@ -86,14 +87,19 @@ export function CreateExpenses() {
 
                     <div>
                         <label htmlFor="year">Year</label>
-                        <input
-                            type="number"
+                        <select
                             name="year"
                             id="year"
-                            placeholder="2000"
                             value={formValues.year}
                             onChange={changeHandler}
-                        />
+                        >
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+
+                        </select>
                     </div>
 
                     <div>

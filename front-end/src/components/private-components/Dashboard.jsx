@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import {useEffect, useState} from 'react';
 import {Link, useLocation, useNavigate} from 'react-router-dom';
 import styles from './Dashboard.module.css';
-import getAllExpensesForUser from './expenseApi.js';
+import {getAllExpensesForUser} from './expenseApi.js';
 import ExpenseComponent from './ExpenseComponent.jsx';
 
 function Dashboard() {
@@ -67,7 +67,7 @@ function Dashboard() {
     return (
         <>
             <div className={styles.container}>
-                <Link to="/create" className={styles.createButton}>Create New Expense</Link>
+                <Link to="/expenses/create" className={styles.createButton}>Create New Expense</Link>
                 <h1 className={styles.heading}>Dashboard</h1>
 
                 <div className={styles.filterContainer}>
@@ -110,7 +110,7 @@ function Dashboard() {
                 ) : (
                     filteredExpenses.length > 0 ? (
                         filteredExpenses.map((expense) => (
-                            <ExpenseComponent key={expense.id} expense={expense} />
+                            <ExpenseComponent key={expense.id} expense={expense}/>
                         ))
                     ) : (
                         <p className={styles.noexpenses}>No expenses available.</p>
