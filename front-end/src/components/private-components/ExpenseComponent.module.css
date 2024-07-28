@@ -9,6 +9,22 @@
 
 }
 
+.btn{
+    border: 0;
+    font-size: 16px;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 14px;
+    background-color: #8ed818;
+
+}
+
+.btn:hover{
+    background-color: #a2ea2f;
+    color: black;
+
+}
+
 @media (max-width: 768px) {
     .box {
         flex: 1 1 calc(50% - 20px); /* 2 items per row */

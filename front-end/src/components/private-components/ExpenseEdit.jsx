@@ -6,7 +6,6 @@ import axios from "axios";
 import {getExpenseById} from "./expenseApi.js";
 
 export default function ExpenseEdit() {
-    const {userId} = useContext(AuthContext);
     const navigate = useNavigate();
     const {expenseId} = useParams()
     const [formValues, setFormValues] = useState({

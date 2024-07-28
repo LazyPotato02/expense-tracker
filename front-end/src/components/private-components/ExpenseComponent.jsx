@@ -7,7 +7,7 @@ export default function ExpenseComponent(props) {
         <div className={styles.expense} key={expense.id}>
             <h3>{expense.title}</h3>
             <p>Amount: ${expense.amount}</p>
-            <Link to={`/expenses/details/${expense.id}`}>Details</Link>
+            <Link className={styles.btn} to={`/expenses/details/${expense.id}`}>Details</Link>
         </div>
     )
 }

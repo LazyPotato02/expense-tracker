@@ -20,3 +20,34 @@
     box-sizing: border-box;
     text-align: center;
 }
+
+
+.btn{
+    border: 0;
+    font-size: 16px;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: #8ed818;
+    margin-left: 30px;
+}
+.redBtn{
+    border: 0;
+    font-size: 16px;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: #fb2424;
+    margin-left: 30px;
+}
+.redBtn:hover{
+    background-color: #df5e5e;
+    color: black;
+
+
+}
+.btn:hover{
+    background-color: #a2ea2f;
+    color: black;
+
+}

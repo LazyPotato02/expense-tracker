@@ -11,6 +11,7 @@ import NotFound from "./components/public-components/NotFound.jsx";
 import {ExpenseCreate} from "./components/private-components/ExpenseCreate.jsx";
 import ExpensesDetails from "./components/private-components/ExpensesDetails.jsx";
 import ExpenseEdit from "./components/private-components/ExpenseEdit.jsx";
+import ExpenseDelete from "./components/private-components/ExpenseDelete.jsx";
 
 const App = () => {
     return (
@@ -29,6 +30,7 @@ const App = () => {
                     <Route path="/expenses/create" element={<ProtectedRoute><ExpenseCreate /></ProtectedRoute>} />
                     <Route path="/expenses/details/:expenseId" element={<ProtectedRoute><ExpensesDetails /></ProtectedRoute>} />
                     <Route path="/expenses/edit/:expenseId" element={<ProtectedRoute><ExpenseEdit /></ProtectedRoute>} />
+                    <Route path="/expenses/delete/:expenseId" element={<ProtectedRoute><ExpenseDelete /></ProtectedRoute>} />
 
                     {/* Catch-all route for 404 Not Found */}
                     <Route path="*" element={<NotFound />} />

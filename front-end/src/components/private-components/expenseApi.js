@@ -30,3 +30,14 @@ export async function getExpenseById(expenseId){
         });
     return expense
 }
+
+export async function deleteExpenseById(expenseId){
+    const expense = await axios.delete(`/api/auth/expenses/${expenseId}`)
+        .then(response => {
+            return response.data;
+        })
+        .catch(error => {
+            return error
+        });
+    return expense
+}

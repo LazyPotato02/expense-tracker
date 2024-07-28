@@ -1,14 +1,12 @@
-import {Link, useNavigate, useParams} from "react-router-dom";
-import {getExpenseById} from "./expenseApi.js";
 import {useEffect, useState} from "react";
+import {deleteExpenseById, getExpenseById} from "./expenseApi.js";
+import {Link, useNavigate, useParams} from "react-router-dom";
 import styles from "./ExpenseDetails.module.css";
-import styles2 from "./ExpenseComponent.module.css"
 
-export default function ExpenseDetails() {
+export default function ExpenseDelete() {
     const [expense, setExpense] = useState({});
-    const {expenseId} = useParams()
     const navigate = useNavigate();
-
+    const {expenseId} = useParams()
     useEffect(() => {
         (async () => {
             const singleExpense = await getExpenseById(expenseId)
@@ -28,11 +26,17 @@ export default function ExpenseDetails() {
     }
 
 
+    function onDelete() {
+        deleteExpenseById(expenseId)
+
+        navigate('/dashboard')
+    }
+
     return (
         <>
             <div className={styles.expenseDetailsWrapper}>
 
-                <p>Details</p>
+                <p>Delete</p>
                 <div>
                     {expense.id ? (
                         <div>
@@ -42,8 +46,9 @@ export default function ExpenseDetails() {
                                 <p>Description: {expense.description}</p>
                                 <p>Year: {expense.year}</p>
                                 <p>Month: {getMonthName(expense.month)}</p>
-                                <Link className={styles.btn} to={`/expenses/edit/${expense.id}`}>Edit</Link>
-                                <Link className={styles.redBtn} to={`/expenses/delete/${expense.id}`}>Delete</Link>
+                                <Link className={styles.btn} to={`/expenses/details/${expense.id}`}>Cancel</Link>
+                                <button className={styles.redBtn} onClick={onDelete}>Delete</button>
+
                             </div>
 
                         </div>
@@ -56,5 +61,4 @@ export default function ExpenseDetails() {
         </>
 
     )
-
 }
