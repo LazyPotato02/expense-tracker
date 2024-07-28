@@ -4,7 +4,6 @@ import axios from "axios";
 import styles from "./CreateExpenses.module.css";
 export function CreateExpenses() {
     const {userId}= useContext(AuthContext);
-
     const [formValues, setFormValues] = useState({
         creator:userId?.data.id,
         title:'',

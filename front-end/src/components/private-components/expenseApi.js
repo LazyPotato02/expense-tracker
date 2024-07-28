@@ -1,5 +1,4 @@
 import axios from "axios";
-import {useState} from "react";
 
 
 axios.defaults.baseURL = 'http://localhost:8000';
@@ -7,6 +6,9 @@ axios.defaults.withCredentials = true;
 
 
 export default async function getAllExpensesForUser(userId) {
+
+
+
     // const response = await axios.get('/api/auth/expenses/', {headers: {'Cookie': `auth_token=${userId}`}});
     const expenses = axios.get('/api/auth/expenses/', {
         withCredentials: true // Include cookies with the request

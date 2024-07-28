@@ -1,26 +1,25 @@
 import styles from './Dashboard.module.css';
 import {Link} from "react-router-dom";
-import {useEffect, useState} from "react";
-import axios from "axios";
+import {useContext, useEffect, useState} from "react";
 import getAllExpensesForUser from "./expenseApi.js";
 import {} from "./CreateExpenses.jsx";
-import expenseComponents from "./ExpenseComponent.jsx";
 import ExpenseComponent from "./ExpenseComponent.jsx";
+import {AuthContext} from "../user-management/AuthContext.jsx";
 
 export default function Dashboard() {
     // fetch all expenses based on  selected month and year need both to be true while searching for them
+    const { auth } = useContext(AuthContext);
+    console.log(auth)
     const [expenses, setExpenses] = useState({});
-
     useEffect( () => {
 
         (async () => {
-            const result = await getAllExpensesForUser('fe7036e717c6260d8478ab584df571f38e19e7c5')
+            const result = await getAllExpensesForUser()
             setExpenses(result)
 
         })();
 
     },[])
-    console.log(expenses)
     return(
         <>
             <div className={styles.container}>

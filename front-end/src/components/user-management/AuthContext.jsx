@@ -12,17 +12,28 @@ const AuthProvider = ({ children }) => {
     const [userId , setUserId] = useState(null);
     const [isCheckingAuth, setIsCheckingAuth] = useState(true);
     const navigate = useNavigate();
-    useEffect(() => {
 
+    useEffect(() => {
         const verifyAuth = async () => {
-            try {
-                const response = await axios.get('/api/auth/verify/');
-                setAuth({ status: 'authenticated','auth_token': response['auth_token'] });
-                const id = await axios.get('/api/auth/user-id/');
-                setUserId(id)
-            } catch (error) {
+            const token = localStorage.getItem('auth_token');
+
+            if (token) {
+                try {
+                    // Optionally, you can set the token in the headers for all requests
+                    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+
+                    const response = await axios.get('/api/auth/verify/');
+                    setAuth({ status: 'authenticated', 'auth_token': token });
+
+                    const idResponse = await axios.get('/api/auth/user-id/');
+                    setUserId(idResponse.data.id);
+                } catch (error) {
+                    setAuth(false);
+                } finally {
+                    setIsCheckingAuth(false);
+                }
+            } else {
                 setAuth(false);
-            } finally {
                 setIsCheckingAuth(false);
             }
         };
@@ -33,7 +44,10 @@ const AuthProvider = ({ children }) => {
     const login = async (username, password) => {
         try {
             const response = await axios.post('/api/auth/login/', { username, password });
-            setAuth({ status: 'authenticated' });
+            const token = response.data['token'];
+            localStorage.setItem('auth_token', token);
+            setAuth({ status: 'authenticated', 'auth_token': token });
+
             navigate('/');
         } catch (error) {
             console.error('Login failed:', error);
@@ -43,7 +57,10 @@ const AuthProvider = ({ children }) => {
     const register = async (username, password) => {
         try {
             const response = await axios.post('/api/auth/register/', { username, password });
-            setAuth({ status: 'authenticated' });
+            const token = response.data['token'];
+            localStorage.setItem('auth_token', token);
+            setAuth({ status: 'authenticated', 'auth_token': token });
+
             navigate('/');
         } catch (error) {
             console.error('Registration failed:', error);
@@ -53,6 +70,7 @@ const AuthProvider = ({ children }) => {
     const logout = async () => {
         try {
             await axios.post('/api/auth/logout/');
+            localStorage.removeItem('auth_token');
             setAuth(null);
             navigate('/login');
         } catch (error) {
@@ -61,7 +79,7 @@ const AuthProvider = ({ children }) => {
     };
 
     return (
-        <AuthContext.Provider value={{ auth, isCheckingAuth,login, register, logout,userId }}>
+        <AuthContext.Provider value={{ auth, isCheckingAuth, login, register, logout, userId }}>
             {children}
         </AuthContext.Provider>
     );

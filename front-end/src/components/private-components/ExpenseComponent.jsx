@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 
 export default function ExpenseComponent(props) {
     const expense = props.expense;
-
     return (
         <div key={expense.id}>
             <h1>{expense.id}</h1>
