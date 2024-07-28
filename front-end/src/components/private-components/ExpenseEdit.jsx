@@ -1,12 +1,13 @@
 import styles from "./CreateExpenses.module.css";
-import {useContext, useEffect, useState} from "react";
-import {AuthContext} from "../user-management/AuthContext.jsx";
+import {useEffect, useState} from "react";
 import {Link, useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
 import {getExpenseById} from "./expenseApi.js";
 
 export default function ExpenseEdit() {
     const navigate = useNavigate();
+    const [error, setError] = useState('');
+
     const {expenseId} = useParams()
     const [formValues, setFormValues] = useState({
         title: '',
@@ -28,10 +29,16 @@ export default function ExpenseEdit() {
     const formSubmitHandler = async (e) => {
         e.preventDefault();
         try {
+            if (formValues.title === '' || formValues.amount === '' || formValues.description === ''){
+                setError('All values are required')
+                return
+            }
             const response = await axios.put(`http://localhost:8000/api/auth/expenses/${expenseId}/`, formValues);
             navigate('/dashboard')
         } catch (error) {
-            console.error('Error submitting form:', error);
+            // console.error('Error submitting form:', error);
+            setError('Amount must be lower than 10 numbers');
+
         }
     };
 
@@ -56,6 +63,11 @@ export default function ExpenseEdit() {
             <div className={styles.formWrapper}>
                 <h1>Edit Expense</h1>
                 <form className={styles.form} onSubmit={formSubmitHandler}>
+                    {error && (
+                        <p className={styles.error}>
+                            <span>{error}</span>
+                        </p>
+                    )}
                     <div>
                         <label htmlFor="title">Title</label>
                         <input
@@ -136,7 +148,7 @@ export default function ExpenseEdit() {
 
                     <div>
 
-                        <input className={styles.submitBtn} type="submit" value="Submit"/>
+                        <input className={styles.submitBtn} type="submit" value="Edit"/>
                         <Link className={styles.redBtn} to={`/expenses/details/${expenseId}`}>Cancel</Link>
                     </div>
 

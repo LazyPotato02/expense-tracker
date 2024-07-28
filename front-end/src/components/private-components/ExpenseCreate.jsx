@@ -7,12 +7,13 @@ import {useNavigate} from "react-router-dom";
 export function ExpenseCreate() {
     const {userId} = useContext(AuthContext);
     const navigate = useNavigate();
+    const [error, setError] = useState('');
     const [formValues, setFormValues] = useState({
         creator: userId,
         title: '',
         amount: '',
         description: '',
-        year: '',
+        year: '2024',
         month: '01',
     })
 
@@ -20,13 +21,16 @@ export function ExpenseCreate() {
     const formSubmitHandler = async (e) => {
         e.preventDefault();
         try {
-            // Send form data to the server
+            if (formValues.title === '' || formValues.amount === '' || formValues.description === ''){
+                setError('All values are required')
+                return
+            }
+
             const response = await axios.post('http://localhost:8000/api/auth/expenses/', formValues);
-            // Handle the response
             navigate('/dashboard')
         } catch (error) {
-            // Handle error
-            console.error('Error submitting form:', error);
+            // console.log('Error submitting form:', error);
+            setError('Amount must be lower than 10 numbers');
         }
     };
 
@@ -49,6 +53,11 @@ export function ExpenseCreate() {
             <div className={styles.formWrapper}>
                 <h1>Create Expense</h1>
                 <form className={styles.form} onSubmit={formSubmitHandler}>
+                    {error && (
+                        <p className={styles.error}>
+                            <span>{error}</span>
+                        </p>
+                    )}
                     <div>
                         <label htmlFor="title">Title</label>
                         <input
@@ -56,6 +65,7 @@ export function ExpenseCreate() {
                             type="text"
                             name="title"
                             id="title"
+                            maxLength={30}
                             placeholder="Bills"
                             value={formValues.title}
                             onChange={changeHandler}
@@ -68,7 +78,6 @@ export function ExpenseCreate() {
                             name="amount"
                             id="amount"
                             placeholder="20"
-                            maxLength='4'
                             value={formValues.amount}
                             onChange={changeHandler}
                         />
@@ -129,7 +138,7 @@ export function ExpenseCreate() {
                     </div>
 
                     <div>
-                        <input className={styles.submitBtn} type="submit" value="Submit"/>
+                        <input className={styles.submitBtn} type="submit" value="Create"/>
                     </div>
                 </form>
             </div>

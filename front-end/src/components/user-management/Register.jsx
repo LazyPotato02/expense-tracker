@@ -8,15 +8,23 @@ const Register = () => {
     const [password, setPassword] = useState('');
     const [repass, setRepass] = useState('');
     const {register} = useContext(AuthContext);
+    const [error, setError] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // check if pass and repass match if not throw error | if match proceed to register
         if (password !== repass) {
-            console.log('pass don\'t match')
+            setError('Password mismatch!')
+            return
+        }
+        if (password.length <= 7) {
+            setError('Password must be at least 8 characters long!')
+            return
         }
 
-        await register(username, password);
+        const response = await register(username, password);
+        if (response.response.status === 400) {
+            setError('Username already exists!');
+        }
     };
 
     return (
@@ -24,6 +32,12 @@ const Register = () => {
             <h1 className={styles.registerTitle}>Register</h1>
 
             <form className={styles.RegisterForm} onSubmit={handleSubmit}>
+                {error && (
+                    <p className={styles.error}>
+                        <span>{error}</span>
+                    </p>
+                )}
+
                 <label htmlFor="username">Username</label>
 
                 <input
@@ -53,7 +67,8 @@ const Register = () => {
                 />
                 <button type="submit">Register</button>
                 <div className={styles.login}>
-                    <p className={styles.loginPrompt} >If you already have an account, <Link to={'/login'}>login here</Link>.</p>
+                    <p className={styles.loginPrompt}>If you already have an account, <Link to={'/login'}>login
+                        here</Link>.</p>
                 </div>
             </form>
         </div>

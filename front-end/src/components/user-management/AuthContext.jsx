@@ -50,7 +50,7 @@ const AuthProvider = ({ children }) => {
 
             navigate('/');
         } catch (error) {
-            console.error('Login failed:', error);
+            return error;
         }
     };
 
@@ -63,7 +63,7 @@ const AuthProvider = ({ children }) => {
 
             navigate('/');
         } catch (error) {
-            console.error('Registration failed:', error);
+            return error;
         }
     };
 

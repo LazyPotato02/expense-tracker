@@ -24,7 +24,7 @@
 
 
 .form input{
-    width: 70px;
+    width: 100px;
     border: none;
     border-radius: 8px;
     padding: 6px;
@@ -76,4 +76,8 @@
     color: black;
 
 
+}
+
+.error{
+    color: red;
 }
