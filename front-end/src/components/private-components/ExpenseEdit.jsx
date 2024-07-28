@@ -1,31 +1,37 @@
-import {useContext, useState} from "react";
-import {AuthContext} from "../user-management/AuthContext.jsx";
-import axios from "axios";
 import styles from "./CreateExpenses.module.css";
-import {useNavigate} from "react-router-dom";
+import {useContext, useEffect, useState} from "react";
+import {AuthContext} from "../user-management/AuthContext.jsx";
+import {useNavigate, useParams} from "react-router-dom";
+import axios from "axios";
+import {getExpenseById} from "./expenseApi.js";
 
-export function ExpenseCreate() {
+export default function ExpenseEdit() {
     const {userId} = useContext(AuthContext);
     const navigate = useNavigate();
+    const {expenseId} = useParams()
     const [formValues, setFormValues] = useState({
-        creator: userId,
         title: '',
         amount: '',
         description: '',
         year: '',
         month: '01',
     })
-
+    useEffect(() => {
+        (async () => {
+            const singleExpense = await getExpenseById(expenseId)
+            if (singleExpense.response?.status === 404) {
+                navigate('/dashboard')
+            }
+            setFormValues(singleExpense)
+        })();
+    }, []);
 
     const formSubmitHandler = async (e) => {
         e.preventDefault();
         try {
-            // Send form data to the server
-            const response = await axios.post('http://localhost:8000/api/auth/expenses/', formValues);
-            // Handle the response
+            const response = await axios.put(`http://localhost:8000/api/auth/expenses/${expenseId}/`, formValues);
             navigate('/dashboard')
         } catch (error) {
-            // Handle error
             console.error('Error submitting form:', error);
         }
     };
@@ -33,10 +39,10 @@ export function ExpenseCreate() {
     const changeHandler = (e) => {
         const {name, value} = e.target;
 
-        // Additional validation for year
+
         if (name === 'year') {
-            if (value.length > 4) return; // Prevent more than 4 digits
-            if (parseInt(value) < 0) return; // Prevent negative numbers
+            if (value.length > 4) return;
+            if (parseInt(value) < 0) return;
         }
 
         setFormValues(oldValues => ({
@@ -44,10 +50,12 @@ export function ExpenseCreate() {
             [name]: value,
         }));
     };
+
+
     return (
         <>
             <div className={styles.formWrapper}>
-                <h1>Create Expense</h1>
+                <h1>Edit Expense</h1>
                 <form className={styles.form} onSubmit={formSubmitHandler}>
                     <div>
                         <label htmlFor="title">Title</label>
@@ -100,12 +108,11 @@ export function ExpenseCreate() {
                             <option value="2020">2020</option>
                             <option value="2019">2019</option>
                             <option value="2018">2018</option>
-
                         </select>
                     </div>
 
                     <div>
-                        <label htmlFor="month">Month</label>
+                    <label htmlFor="month">Month</label>
                         <select
                             name="month"
                             id="month"
