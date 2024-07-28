@@ -1,14 +1,17 @@
 import { useEffect, useState } from 'react';
 import {Link, useLocation, useNavigate} from 'react-router-dom';
 import styles from './Dashboard.module.css';
-import getAllExpensesForUser from './expenseApi';
-import ExpenseComponent from './ExpenseComponent';
+import getAllExpensesForUser from './expenseApi.js';
+import ExpenseComponent from './ExpenseComponent.jsx';
 
 function Dashboard() {
-    const [month, setMonth] = useState('');
-    const [year, setYear] = useState('');
+    const [formMonth, setFormMonth] = useState('');
+    const [formYear, setFormYear] = useState('');
+    const [filterMonth, setFilterMonth] = useState('');
+    const [filterYear, setFilterYear] = useState('');
     const [expenses, setExpenses] = useState([]);
     const [filteredExpenses, setFilteredExpenses] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -16,7 +19,7 @@ function Dashboard() {
         (async () => {
             const result = await getAllExpensesForUser();
             setExpenses(result);
-            setFilteredExpenses(result); // Initially show all expenses
+            setIsLoading(false);
         })();
     }, []);
 
@@ -24,10 +27,17 @@ function Dashboard() {
         const searchParams = new URLSearchParams(location.search);
         const monthParam = searchParams.get('month') || '';
         const yearParam = searchParams.get('year') || '';
-        setMonth(monthParam);
-        setYear(yearParam);
-        filterExpenses(monthParam, yearParam);
+        setFilterMonth(monthParam);
+        setFilterYear(yearParam);
+        setFormMonth(monthParam);
+        setFormYear(yearParam);
     }, [location.search]);
+
+    useEffect(() => {
+        if (!isLoading) {
+            filterExpenses(filterMonth, filterYear);
+        }
+    }, [filterMonth, filterYear, expenses, isLoading]);
 
     const filterExpenses = (month, year) => {
         const filtered = expenses.filter(expense => {
@@ -40,16 +50,18 @@ function Dashboard() {
     };
 
     const handleMonthChange = (e) => {
-        setMonth(e.target.value);
+        setFormMonth(e.target.value);
     };
 
     const handleYearChange = (e) => {
-        setYear(e.target.value);
+        setFormYear(e.target.value);
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        navigate(`/dashboard?month=${month}&year=${year}`);
+        setFilterMonth(formMonth);
+        setFilterYear(formYear);
+        navigate(`/dashboard?month=${formMonth}&year=${formYear}`);
     };
 
     return (
@@ -61,7 +73,7 @@ function Dashboard() {
                 <div className={styles.filterContainer}>
                     <form onSubmit={handleSubmit}>
                         <label htmlFor="month">Month: </label>
-                        <select id="month" value={month} onChange={handleMonthChange}>
+                        <select id="month" value={formMonth} onChange={handleMonthChange}>
                             <option value="">All</option>
                             <option value="01">January</option>
                             <option value="02">February</option>
@@ -78,19 +90,13 @@ function Dashboard() {
                         </select>
 
                         <label htmlFor="year">Year: </label>
-                        <select id="year" value={year} onChange={handleYearChange}>
+                        <select id="year" value={formYear} onChange={handleYearChange}>
                             <option value="">All</option>
-                            <option value="2023">2024</option>
+                            <option value="2024">2024</option>
                             <option value="2023">2023</option>
                             <option value="2022">2022</option>
                             <option value="2021">2021</option>
-                            <option value="2023">2020</option>
-                            <option value="2023">2019</option>
-                            <option value="2023">2018</option>
-                            <option value="2023">2017</option>
-                            <option value="2023">2016</option>
-
-                            {/* Add more years as needed */}
+                            <option value="2020">2020</option>
                         </select>
 
                         <button type="submit">Submit</button>
@@ -99,12 +105,16 @@ function Dashboard() {
             </div>
 
             <div className={styles.expenses}>
-                {filteredExpenses.length > 0 ? (
-                    filteredExpenses.map((expense) => (
-                        <ExpenseComponent key={expense.id} expense={expense} />
-                    ))
+                {isLoading ? (
+                    <p>Loading...</p>
                 ) : (
-                    <p className={styles.noexpenses}>No expenses available.</p>
+                    filteredExpenses.length > 0 ? (
+                        filteredExpenses.map((expense) => (
+                            <ExpenseComponent key={expense.id} expense={expense} />
+                        ))
+                    ) : (
+                        <p className={styles.noexpenses}>No expenses available.</p>
+                    )
                 )}
             </div>
         </>
