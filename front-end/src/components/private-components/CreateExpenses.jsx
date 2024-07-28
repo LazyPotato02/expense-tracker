@@ -6,7 +6,7 @@ export function CreateExpenses() {
     const {userId}= useContext(AuthContext);
 
     const [formValues, setFormValues] = useState({
-        creator:userId.data.id,
+        creator:userId?.data.id,
         title:'',
         amount: '',
         description: '',

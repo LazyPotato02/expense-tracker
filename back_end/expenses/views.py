@@ -51,7 +51,8 @@ class VerifyAuthView(APIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
-        return Response({'status': 'authenticated'}, status=200)
+        cookie = request.COOKIES.get('auth_token')
+        return Response({'status': 'authenticated','auth_token':cookie}, status=200)
 
 class UserIdView(APIView):
     permission_classes = [IsAuthenticated]

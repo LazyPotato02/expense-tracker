@@ -17,7 +17,7 @@ const AuthProvider = ({ children }) => {
         const verifyAuth = async () => {
             try {
                 const response = await axios.get('/api/auth/verify/');
-                setAuth({ status: 'authenticated' });
+                setAuth({ status: 'authenticated','auth_token': response['auth_token'] });
                 const id = await axios.get('/api/auth/user-id/');
                 setUserId(id)
             } catch (error) {
