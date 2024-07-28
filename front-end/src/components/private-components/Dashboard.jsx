@@ -8,8 +8,6 @@ import {AuthContext} from "../user-management/AuthContext.jsx";
 
 export default function Dashboard() {
     // fetch all expenses based on  selected month and year need both to be true while searching for them
-    const { auth } = useContext(AuthContext);
-    console.log(auth)
     const [expenses, setExpenses] = useState({});
     useEffect( () => {
 
@@ -32,7 +30,7 @@ export default function Dashboard() {
                         <ExpenseComponent key={expense.id} expense={expense} />
                     ))
                 ) : (
-                    <p>No expenses available.</p>
+                    <p className={styles.noExpenses}>No expenses available.</p>
                 )}
             </div>
         </>

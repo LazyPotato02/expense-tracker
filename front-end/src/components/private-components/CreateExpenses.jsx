@@ -2,10 +2,12 @@ import {useContext, useState} from "react";
 import {AuthContext} from "../user-management/AuthContext.jsx";
 import axios from "axios";
 import styles from "./CreateExpenses.module.css";
+import {useNavigate} from "react-router-dom";
 export function CreateExpenses() {
     const {userId}= useContext(AuthContext);
+    const navigate = useNavigate();
     const [formValues, setFormValues] = useState({
-        creator:userId?.data.id,
+        creator:userId,
         title:'',
         amount: '',
         description: '',
@@ -20,7 +22,7 @@ export function CreateExpenses() {
             // Send form data to the server
             const response = await axios.post('http://localhost:8000/api/auth/expenses/', formValues);
             // Handle the response
-            console.log('Form submitted successfully:', response.data);
+            navigate('/dashboard')
         } catch (error) {
             // Handle error
             console.error('Error submitting form:', error);

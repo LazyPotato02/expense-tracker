@@ -35,5 +35,15 @@
 }
 
 .expenses{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:flex-start;
+    gap: 20px;
+    margin: 30px;
 
+}
+
+.noExpenses{
+    font-size: 38px;
+    font-weight: bold;
 }

@@ -1,14 +1,13 @@
 import PropTypes from 'prop-types';
-
+import styles from './ExpenseComponent.module.css'
+import {Link} from "react-router-dom";
 export default function ExpenseComponent(props) {
     const expense = props.expense;
     return (
-        <div key={expense.id}>
-            <h1>{expense.id}</h1>
+        <div className={styles.expense} key={expense.id}>
             <h3>{expense.title}</h3>
-            <p>Creator ID: {expense.creator}</p>
             <p>Amount: ${expense.amount}</p>
-            <p>Description: {expense.description}</p>
+            <Link>Details</Link>
         </div>
     )
 }
