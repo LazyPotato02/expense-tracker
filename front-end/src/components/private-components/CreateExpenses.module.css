@@ -46,13 +46,34 @@
     padding: 6px;
 }
 
+.btnWrapp{
+    display: flex;
+}
+
 .submitBtn{
     background-color: #8bc34a;
     color: white;
     cursor: pointer;
+    font-size: 16px;
 }
 
 .submitBtn:hover {
     background-color: #6fa32c;
     color: white;
+}
+
+.redBtn{
+    border: 0;
+    font-size: 16px;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: #fb2424;
+    margin-top:10px
+}
+.redBtn:hover{
+    background-color: #df5e5e;
+    color: black;
+
+
 }

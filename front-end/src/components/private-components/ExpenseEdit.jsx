@@ -1,7 +1,7 @@
 import styles from "./CreateExpenses.module.css";
 import {useContext, useEffect, useState} from "react";
 import {AuthContext} from "../user-management/AuthContext.jsx";
-import {useNavigate, useParams} from "react-router-dom";
+import {Link, useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
 import {getExpenseById} from "./expenseApi.js";
 
@@ -135,8 +135,11 @@ export default function ExpenseEdit() {
                     </div>
 
                     <div>
+
                         <input className={styles.submitBtn} type="submit" value="Submit"/>
+                        <Link className={styles.redBtn} to={`/expenses/details/${expenseId}`}>Cancel</Link>
                     </div>
+
                 </form>
             </div>
 
