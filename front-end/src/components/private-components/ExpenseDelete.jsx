@@ -28,8 +28,8 @@ export default function ExpenseDelete() {
 
     function onDelete() {
         deleteExpenseById(expenseId)
-
-        navigate('/dashboard')
+        window.location.href = '/dashboard'
+        // navigate('/dashboard')
     }
 
     return (

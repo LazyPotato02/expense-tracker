@@ -4,7 +4,6 @@ import axios from "axios";
 axios.defaults.baseURL = 'http://localhost:8000';
 axios.defaults.withCredentials = true;
 
-
 export async function getAllExpensesForUser() {
 
     // const response = await axios.get('/api/auth/expenses/', {headers: {'Cookie': `auth_token=${userId}`}});

@@ -19,9 +19,8 @@ const AuthProvider = ({ children }) => {
 
             if (token) {
                 try {
-                    // Optionally, you can set the token in the headers for all requests
-                    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-
+                    // axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+                    // axios.defaults.headers.common['X-CSRFToken'] = token;
                     const response = await axios.get('/api/auth/verify/');
                     setAuth({ status: 'authenticated', 'auth_token': token });
 

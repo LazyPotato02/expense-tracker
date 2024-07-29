@@ -12,7 +12,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const response = await login(username, password);
-        if (response.response.status === 400){
+        if (response?.response.status === 400){
             setError('Wrong username or password');
         }
     };

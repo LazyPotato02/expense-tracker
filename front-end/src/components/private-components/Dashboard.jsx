@@ -3,6 +3,7 @@ import {Link, useLocation, useNavigate} from 'react-router-dom';
 import styles from './Dashboard.module.css';
 import {getAllExpensesForUser} from './expenseApi.js';
 import ExpenseComponent from './ExpenseComponent.jsx';
+import ExpenseDelete from "./ExpenseDelete.jsx";
 
 function Dashboard() {
     const [formMonth, setFormMonth] = useState('');
@@ -17,11 +18,12 @@ function Dashboard() {
 
     useEffect(() => {
         (async () => {
+            setIsLoading(true);
             const result = await getAllExpensesForUser();
             setExpenses(result);
             setIsLoading(false);
         })();
-    }, []);
+    }, [location]);
 
     useEffect(() => {
         const searchParams = new URLSearchParams(location.search);
@@ -62,6 +64,11 @@ function Dashboard() {
         setFilterMonth(formMonth);
         setFilterYear(formYear);
         navigate(`/dashboard?month=${formMonth}&year=${formYear}`);
+    };
+
+    const removeExpense = (id) => {
+        setExpenses(prevExpenses => prevExpenses.filter(expense => expense.id !== id));
+        setFilteredExpenses(prevFilteredExpenses => prevFilteredExpenses.filter(expense => expense.id !== id));
     };
 
     return (

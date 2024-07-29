@@ -29,7 +29,7 @@ export function ExpenseCreate() {
             const response = await axios.post('http://localhost:8000/api/auth/expenses/', formValues);
             navigate('/dashboard')
         } catch (error) {
-            // console.log('Error submitting form:', error);
+            console.log('Error submitting form:', error);
             setError('Amount must be lower than 10 numbers');
         }
     };

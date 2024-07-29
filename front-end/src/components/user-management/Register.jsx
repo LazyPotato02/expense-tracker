@@ -22,7 +22,8 @@ const Register = () => {
         }
 
         const response = await register(username, password);
-        if (response.response.status === 400) {
+        console.log(response)
+        if (response?.request.status === 400) {
             setError('Username already exists!');
         }
     };

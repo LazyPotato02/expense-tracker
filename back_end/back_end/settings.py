@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-v5_b(0bsj%uiza3g^yz%_s&2i6c=+2)!079b#&u945n1!#0jr&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -54,16 +54,16 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-]
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:5173",
+# ]
 
 CORS_ALLOW_CREDENTIALS = True
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:5173",
 ]
-
+CORS_ALLOW_ALL_ORIGINS = True
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         # 'rest_framework.authentication.TokenAuthentication',
@@ -104,7 +104,7 @@ DATABASES = {
         "NAME": "expenses",
         "USER": "postgreuser",
         "PASSWORD": "password",
-        "HOST": "10.70.71.110",
+        "HOST": "db",
         "PORT": "5432",
     }
 }
