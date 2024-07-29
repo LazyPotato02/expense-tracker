@@ -26,10 +26,10 @@ export default function ExpenseDelete() {
     }
 
 
-    function onDelete() {
-        deleteExpenseById(expenseId)
-        window.location.href = '/dashboard'
-        // navigate('/dashboard')
+    async function onDelete() {
+        await deleteExpenseById(expenseId)
+        // window.location.href = '/dashboard'
+        navigate('/dashboard')
     }
 
     return (

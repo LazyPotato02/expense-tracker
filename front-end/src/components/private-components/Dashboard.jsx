@@ -16,14 +16,16 @@ function Dashboard() {
     const location = useLocation();
     const navigate = useNavigate();
 
+    const fetchData = async () => {
+        setIsLoading(true);
+        const result = await getAllExpensesForUser();
+        setExpenses(result);
+        setIsLoading(false);
+    };
+
     useEffect(() => {
-        (async () => {
-            setIsLoading(true);
-            const result = await getAllExpensesForUser();
-            setExpenses(result);
-            setIsLoading(false);
-        })();
-    }, [location]);
+        fetchData();
+    }, [location.pathname, location.search]);
 
     useEffect(() => {
         const searchParams = new URLSearchParams(location.search);
@@ -66,10 +68,6 @@ function Dashboard() {
         navigate(`/dashboard?month=${formMonth}&year=${formYear}`);
     };
 
-    const removeExpense = (id) => {
-        setExpenses(prevExpenses => prevExpenses.filter(expense => expense.id !== id));
-        setFilteredExpenses(prevFilteredExpenses => prevFilteredExpenses.filter(expense => expense.id !== id));
-    };
 
     return (
         <>

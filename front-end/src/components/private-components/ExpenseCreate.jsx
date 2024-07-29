@@ -11,7 +11,7 @@ export function ExpenseCreate() {
     const [formValues, setFormValues] = useState({
         creator: userId,
         title: '',
-        amount: '',
+        amount: 0,
         description: '',
         year: '2024',
         month: '01',
@@ -21,7 +21,7 @@ export function ExpenseCreate() {
     const formSubmitHandler = async (e) => {
         e.preventDefault();
         try {
-            if (formValues.title === '' || formValues.amount === '' || formValues.description === ''){
+            if (formValues.title === '' || formValues.amount === 0 || formValues.description === '') {
                 setError('All values are required')
                 return
             }
@@ -29,7 +29,7 @@ export function ExpenseCreate() {
             const response = await axios.post('http://localhost:8000/api/auth/expenses/', formValues);
             navigate('/dashboard')
         } catch (error) {
-            console.log('Error submitting form:', error);
+            // console.log('Error submitting form:', error);
             setError('Amount must be lower than 10 numbers');
         }
     };
@@ -42,11 +42,18 @@ export function ExpenseCreate() {
             if (value.length > 4) return; // Prevent more than 4 digits
             if (parseInt(value) < 0) return; // Prevent negative numbers
         }
+        if (name === 'amount') {
+            setFormValues(oldValues => ({
+                ...oldValues,
+                [name]: Number(value),
+            }));
+        } else {
+            setFormValues(oldValues => ({
+                ...oldValues,
+                [name]: value,
+            }))
+        }
 
-        setFormValues(oldValues => ({
-            ...oldValues,
-            [name]: value,
-        }));
     };
     return (
         <>

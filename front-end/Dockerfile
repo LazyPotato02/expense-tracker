@@ -1,11 +1,17 @@
-# Use a Node.js version that supports the ??= operator
+# Use an official Node.js image as the base image
 FROM node:16
 
-# Set working directory
+# Set the working directory inside the container
 WORKDIR /app
 
 # Copy package.json and package-lock.json
 COPY package*.json ./
+
+
+# Install vite
+
+RUN npm install vite
+
 
 # Install dependencies
 RUN npm install
