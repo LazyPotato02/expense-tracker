@@ -11,7 +11,7 @@ export function ExpenseCreate() {
     const [formValues, setFormValues] = useState({
         creator: userId,
         title: '',
-        amount: 0,
+        amount: '',
         description: '',
         year: '2024',
         month: '01',
@@ -21,7 +21,7 @@ export function ExpenseCreate() {
     const formSubmitHandler = async (e) => {
         e.preventDefault();
         try {
-            if (formValues.title === '' || formValues.amount === 0 || formValues.description === '') {
+            if (formValues.title === '' || formValues.amount === '' || formValues.description === '') {
                 setError('All values are required')
                 return
             }
@@ -43,10 +43,15 @@ export function ExpenseCreate() {
             if (parseInt(value) < 0) return; // Prevent negative numbers
         }
         if (name === 'amount') {
-            setFormValues(oldValues => ({
-                ...oldValues,
-                [name]: Number(value),
-            }));
+            try {
+                setFormValues(oldValues => ({
+                    ...oldValues,
+                    [name]: Number(value),
+                }));
+            }catch (e){
+                setError('Amount must be number!');
+            }
+
         } else {
             setFormValues(oldValues => ({
                 ...oldValues,
