@@ -1,7 +1,7 @@
 # Expense Tracker - project created for ReactJS June 2024
 
 ## Project Information
-**The Expense Tracker is a full-stack application developed using React for the frontend and Django REST framework for the backend. It allows users to manage their expenses.**
+**The Expense Tracker is a full-stack application developed using React for the front end and Django REST framework for the back end. It allows users to manage their expenses.**
 
 # Requirements
     docker
