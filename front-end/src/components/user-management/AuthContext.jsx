@@ -46,7 +46,8 @@ const AuthProvider = ({ children }) => {
             const token = response.data['token'];
             localStorage.setItem('auth_token', token);
             setAuth({ status: 'authenticated', 'auth_token': token });
-
+            const idResponse = await axios.get('/api/auth/user-id/');
+            setUserId(idResponse.data.id);
             navigate('/');
         } catch (error) {
             return error;
@@ -59,7 +60,8 @@ const AuthProvider = ({ children }) => {
             const token = response.data['token'];
             localStorage.setItem('auth_token', token);
             setAuth({ status: 'authenticated', 'auth_token': token });
-
+            const idResponse = await axios.get('/api/auth/user-id/');
+            setUserId(idResponse.data.id);
             navigate('/');
         } catch (error) {
             return error;

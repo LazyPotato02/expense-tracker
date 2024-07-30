@@ -44,6 +44,7 @@ export function ExpenseCreate() {
         }
         if (name === 'amount') {
             try {
+
                 setFormValues(oldValues => ({
                     ...oldValues,
                     [name]: Number(value),
