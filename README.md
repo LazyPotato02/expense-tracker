@@ -4,6 +4,7 @@
 **The Expense Tracker is a full-stack application developed using React for the front end and Django REST framework for the back end. It allows users to manage their expenses.**
 
 # Live [Demo](http://homeserver1122.tplinkdns.com:5173/).
+    The demo may be slow compared to running locally.
 # Requirements
     docker
     docker-compose
